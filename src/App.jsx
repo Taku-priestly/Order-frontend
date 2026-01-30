@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CreateOrder from './pages/createOrder.jsx';
+import OrdersList from './pages/OrderList';
+import OrderDetails from './pages/OrderDetails';
+import VendorOrders from './pages/VendorOrders';
+import { AuthContext } from './content/AuthContext';
+import OrderDashboard from "./pages/OrderDashboard";
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
 
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <AuthContext.Provider value={{ user: { id: 1, role: 'student' } }}>
+      <BrowserRouter>
+        <Routes>
+  <Route path="/" element={<OrderDashboard />} />
+  <Route path="/" element={<h1>Welcome to Order Management System</h1>} />
+  <Route path="/orders/create" element={<CreateOrder />} />
+  <Route path="/orders" element={<OrdersList />} />
+  <Route path="/orders/:id" element={<OrderDetails />} />
+  <Route path="/vendor/orders" element={<VendorOrders />} />
+</Routes>
 
-export default App
+      </BrowserRouter>
+    </AuthContext.Provider>
+  );
+}

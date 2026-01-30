@@ -1,42 +1,141 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Body styling */
+body {
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+  min-block-size: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Container wrapper */
+.container {
+  max-inline-size: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Headings */
+h1, h2, h3 {
+  margin-block-end: 1rem;
+  color: #222;
 }
 
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+form button {
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Table styles for orders list */
+table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  margin-block-start: 1rem;
+}
+
+table th,
+table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  text-align: start;
+}
+
+table th {
+  background-color: #007bff;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: #f1f7ff;
+}
+
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Vendor orders card style */
 .card {
-  padding: 2em;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  margin-block-end: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.read-the-docs {
-  color: #888;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+    margin: 1rem;
+  }
+
+  table th, table td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  form input,
+  form select,
+  form textarea,
+  form button {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
 }
