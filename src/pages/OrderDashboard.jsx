@@ -8,21 +8,24 @@ export default function OrderDashboard() {
     { name: "Create Order", route: "/create-order" },
     { name: "My Orders", route: "/my-orders" },
     { name: "Vendor Orders", route: "/vendor-orders" },
-    { name: "Order Details", route: "/order-details/1" }, // example order_id
+    { name: "Order Details", route: "/order-details/1" },
   ];
 
   return (
     <div style={styles.page}>
       <h1 style={styles.header}>Order Dashboard</h1>
+
       <div style={styles.grid}>
         {pages.map((page) => (
-          <div
-            key={page.name}
-            style={styles.card}
-            onClick={() => navigate(page.route)}
-          >
+          <div key={page.name} style={styles.card}>
             <h2>{page.name}</h2>
-            <button style={styles.btn}>Go</button>
+
+            <button
+              style={styles.btn}
+              onClick={() => navigate(page.route)}
+            >
+              Go
+            </button>
           </div>
         ))}
       </div>
@@ -42,7 +45,7 @@ const styles = {
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
     gap: 20,
   },
   card: {
@@ -50,17 +53,16 @@ const styles = {
     padding: 20,
     borderRadius: 12,
     boxShadow: "0 4px 10px rgba(0,0,0,.1)",
-    cursor: "pointer",
-    transition: "all 0.2s ease",
     textAlign: "center",
   },
   btn: {
-    marginTop: 10,
-    padding: "8px 12px",
+    marginTop: 12,
+    padding: "10px 16px",
     background: "#f97316",
     color: "#fff",
     border: "none",
     borderRadius: 8,
     cursor: "pointer",
+    fontWeight: 600,
   },
 };
